@@ -1,0 +1,36 @@
+{% extends "master.html" %}
+
+{%block title%}
+My Tennis Club
+{%endblock%}
+
+{%block content%}
+
+  <p><a href="/">HOME</a></p>
+<form id="logoutform" action="{% url 'logout' %}" method="post">
+    {% csrf_token %}
+</form>
+{{user.username}}
+<button onclick="document.getElementById('logoutform').submit()">Logout</button>
+
+<h1>Members</h1>
+
+  
+<ul>
+  {% for x in mymembers %}
+    <li>{{ x.firstname }} {{ x.lastname }}</li>
+  {% endfor %}
+</ul>
+
+
+
+
+<h1>link - Members</h1>
+  
+<ul>
+  {% for x in mymembers %}
+    <li><a href="details/{{ x.id }}">{{ x.firstname }} {{ x.lastname }}</a></li>
+  {% endfor %}
+</ul>
+
+{% endblock %}

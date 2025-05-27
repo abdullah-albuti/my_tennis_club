@@ -1,0 +1,112 @@
+  
+<!DOCTYPE html>
+<html>
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'myfirst.css' %}">
+
+<body>
+<h1>Hello {{ firstname }}, how are you?</h1>
+{% include "mymenu.html" with me="abdullah" sponsor="***" %}
+
+<table border='1'>
+  <tr>
+    <th>ID</th>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>phone</th>
+    <th>date</th>
+
+  </tr>
+  {% for x in mymembers %}
+    <tr>
+      <td>{{ x.id }}</td>
+        <td>{{ x.firstname }}</td>
+      <td>{{ x.lastname }}</td>
+      <td>{{ x.phone }}</td>
+       <td>{{ x.joined_date}}</td>
+
+      
+    </tr>
+  {% endfor %}
+</table>
+<br>
+<table border='1'>
+  <tr>
+    <th>ID</th>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>phone</th>
+    <th>date</th>
+
+  </tr>
+  {% for x in mydata %}
+    <tr>
+      <td>{{ x.id }}</td>
+        <td>{{ x.firstname }}</td>
+      <td>{{ x.lastname }}</td>
+      <td>{{ x.phone }}</td>
+       <td>{{ x.joined_date}}</td>
+
+      
+    </tr>
+  {% endfor %}
+</table>
+
+{% if greeting == 1 %}
+  <h1>Hello</h1>
+{% elif greeting == 2 %}
+  <h1>Welcome</h1>
+{%else%}
+<h2>Bye</h2>
+{% endif %} 
+
+
+
+
+<h1>Welcome</h1>
+
+<p>This is my webpage</p>
+
+</body>
+{% include 'footer.html' %} 
+</html> 
+
+
+
+
+
+
+
+
+{% comment %}
+{% with firstname="Tobias" %}
+    <h1>Hello {{ firstname }}, how are you?</h1>
+{% endwith %}
+
+
+
+<h1>Hello {{ firstname }}, how are you?</h1>
+
+{% for x in fruits %}
+  <h1>{{ x }}</h1>
+{% endfor %}
+
+<p>In views.py you can see what the fruits variable looks like.</p>
+
+
+
+{% for x in cars %}
+  <h1>{{ x }}</h1>
+{% endfor %}
+
+<p>In views.py you can see what the cars variable looks like.</p>
+
+<ul>
+  {% for x in mymembers %}
+    <li>{{ x.firstname}} - {{ x.lastname}}</li>
+  {% endfor %}
+</ul>
+{% endcomment %}
+</body>
+</html>
