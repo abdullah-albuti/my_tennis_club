@@ -6,11 +6,11 @@ My Tennis Club
 
 {%block content%}
 
-  <p><a href="/">HOME</a></p>
+<h1>welcome - {{user.username}} </h1>
 <form id="logoutform" action="{% url 'logout' %}" method="post">
     {% csrf_token %}
 </form>
-{{user.username}}
+
 <button onclick="document.getElementById('logoutform').submit()">Logout</button>
 
 <h1>Members</h1>
